@@ -1,0 +1,19 @@
+<div class="card mb-4">
+    <div class="card-body">
+    <!-- <h2>{{passObj.fullname}}</h2> -->
+    <input type="text" #fullName [value]="passObj.fullname" [disabled]="!isEditable" class="form-control mb-2">
+    
+    <p>children : <strong>{{(passObj.checkInDate | date) ?? 'Not Check In'}}</strong></p>
+    
+    <p>Child : <strong>{{passObj.children?.length ?? 0 }}</strong> </p>
+
+    <button mat-raised-button color="primary" class="mr-3"
+    *ngIf="!isEditable" (click)="onEdit()">Edit</button>
+
+    <button mat-raised-button color="primary" class="mx-3"
+    *ngIf="isEditable" (click)="onDone(fullName.value)" >Done</button>
+
+    <button mat-raised-button color="warn" (click)="onRemove()">Delete</button>
+
+</div>
+</div>
